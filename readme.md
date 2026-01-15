@@ -1,4 +1,4 @@
-# Day 83 Task | Cohort 2.0
+# DOM Project | Cohort 2.0
 
 This repository contains the work completed as part of **Day 83** in **Sheryians Coding School – Cohort 2.0**.  
 The focus of this task was to build a **modern e-commerce style product application using React**, with emphasis on **routing, context-based state management, API integration**, and a **clean, responsive UI using Tailwind CSS**.
