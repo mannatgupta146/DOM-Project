@@ -1,18 +1,31 @@
 @font-face {
-  font-family: aeonik;
+  font-family: "Aeonik";
+  src: url("./fonts/AeonikTRIAL-Light.otf") format("opentype");
   font-weight: 200;
-  src: url(./fonts/AeonikTRIAL-Light.otf);
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: aeonik;
+  font-family: "Aeonik";
+  src: url("./fonts/AeonikTRIAL-Regular.otf") format("opentype");
   font-weight: 500;
-  src: url(./fonts/AeonikTRIAL-Regular.otf);
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: aeonik;
+  font-family: "Aeonik";
+  src: url("./fonts/AeonikTRIAL-Bold.otf") format("opentype");
   font-weight: 700;
-  src: url(./fonts/AeonikTRIAL-Bold.otf);
+  font-style: normal;
+  font-display: swap;
 }
+:root {
+  --pri: #08396a;
+  --sec: #1f3c88;
+  --tri1: #e7f0ff;
+  --tri2: #bfdbfe;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +35,8 @@
 html, body {
   width: 100%;
   height: 100%;
+  background-color: var(--pri);
+  color: var(--sec);
   font-family: aeonik;
 }
 
@@ -29,7 +44,58 @@ main {
   width: 100%;
   height: 100%;
 }
-
-h1 {
-  font-weight: 200;
+main nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: var(--tri1);
+}
+main section.allElems {
+  width: 100%;
+  height: 100%;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  gap: 20px;
+  position: absolute;
+}
+main section.allElems .elem {
+  position: relative;
+  background-color: var(--tri2);
+  border-radius: 14px;
+  font-weight: 500;
+  height: 300px;
+  width: 270px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+main section.allElems .elem img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+main section.allElems .elem h2 {
+  position: absolute;
+  bottom: 4%;
+  right: 5%;
+  font-family: aeonik;
+}
+main section.allElems .elem:active {
+  transform: scale(0.95);
+}
+main section.fullElem {
+  height: 100%;
+  width: 100%;
+  display: none;
+  font-size: 50px;
+  padding: 40px;
+  position: absolute;
+  background-color: var(--pri);
 }/*# sourceMappingURL=style.css.map */

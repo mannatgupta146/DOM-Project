@@ -1,38 +1,110 @@
 @font-face {
-    font-family: aeonik;
-    font-weight: 200;
-    src: url(./fonts/AeonikTRIAL-Light.otf);
+  font-family: "Aeonik";
+  src: url("./fonts/AeonikTRIAL-Light.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: aeonik;
-    font-weight: 500;
-    src: url(./fonts/AeonikTRIAL-Regular.otf);
+  font-family: "Aeonik";
+  src: url("./fonts/AeonikTRIAL-Regular.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: aeonik;
-    font-weight: 700;
-    src: url(./fonts/AeonikTRIAL-Bold.otf);
+  font-family: "Aeonik";
+  src: url("./fonts/AeonikTRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+  --pri: #08396a;
+  --sec: #1f3c88;
+  --tri1: #e7f0ff;
+  --tri2: #bfdbfe;
 }
 
-html, body {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  background-color: var(--pri);
+  color: var(--sec);
+  font-family: aeonik;
+}
+
+main{
+  width: 100%;
+  height: 100%;
+
+  nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--tri1);
+  }
+
+  section.allElems{
     width: 100%;
     height: 100%;
-    font-family: aeonik;
-}
+    padding: 80px 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    gap: 20px;
+    position: absolute;
 
-main {
-    width: 100%;
+    .elem{
+        position: relative;
+
+        background-color: var(--tri2);
+      border-radius: 14px;
+      font-weight: 500;
+      height: 300px;
+      width: 270px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      h2{
+        position: absolute;
+        bottom: 4%;
+        right: 5%;
+        font-family: aeonik;
+      }
+
+      &:active{
+        transform: scale(0.95)
+      }
+    }
+  }
+
+  section.fullElem{
     height: 100%;
-}
-
-h1{
-    font-weight: 200;
+    width: 100%;
+    display: none;
+    font-size: 50px;
+    padding: 40px;
+    position: absolute;
+    background-color: var(--pri);
+  }
 }
