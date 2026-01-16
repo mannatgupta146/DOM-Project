@@ -126,4 +126,77 @@ main{
       }
     }
   }
+
+  .todo-fullpage{
+
+    h2{
+      color: #000;
+    }
+
+    .todo-container{
+      height: 80%;
+      width: 100%;
+      margin-top: 20px;
+      background-color: var(--tri2);
+      display: flex;
+      justify-content: space-between;
+
+      .addTask{
+        height: 100%;
+        width: 33%;
+        background-color: darkorange;
+        border-radius: 20px;
+        
+        form{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 30px;
+
+          input{
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 7px;
+            background-color: var(--sec);
+            font-size: 18px;
+            border: none;
+            outline: none;
+          }
+
+          textarea{
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 7px;
+            background-color: var(--sec);
+            font-size: 18px;
+            border: none;
+            outline: none;
+          }
+
+          button{
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 7px;
+            background-color: var(--tri1);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            transition: all ease 0.3s;
+
+            &:active{
+              transform: scale(0.95);
+            }
+          }
+        }
+      }
+
+      .allTask{
+        height: 100%;
+        width: 65%;
+        background-color: rgb(170, 181, 9);
+        border-radius: 20px;
+      }
+    }
+  }
 }

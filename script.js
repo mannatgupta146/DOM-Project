@@ -1,4 +1,5 @@
-const allElems = document.querySelectorAll('.elem')
+function openClose(){
+    const allElems = document.querySelectorAll('.elem')
 const fullElem = document.querySelectorAll('.fullElem')
 const fullElemBackBtn = document.querySelectorAll('.fullElem .back')
 
@@ -13,3 +14,6 @@ fullElemBackBtn.forEach((elem)=>{
         fullElem[elem.id].style.display="none"
     })
 })
+}
+
+ openClose()
