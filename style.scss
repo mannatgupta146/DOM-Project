@@ -119,6 +119,7 @@ main{
       padding: 10px 15px;
       font-size: 20px;
       transition: all 0.3s ease;
+      cursor: pointer;
 
       &:active{
         transform: scale(0.9);

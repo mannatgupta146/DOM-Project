@@ -7,3 +7,9 @@ allElems.forEach((elem)=>{
         fullElem[elem.id].style.display="block"
     })
 })
+
+fullElemBackBtn.forEach((elem)=>{
+    elem.addEventListener('click', ()=>{
+        fullElem[elem.id].style.display="none"
+    })
+})

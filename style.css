@@ -111,6 +111,7 @@ main section.fullElem .back {
   padding: 10px 15px;
   font-size: 20px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 main section.fullElem .back:active {
   transform: scale(0.9);
