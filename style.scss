@@ -77,6 +77,8 @@ main{
       width: 270px;
       overflow: hidden;
       transition: all 0.25s ease;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
 
       img{
         height: 100%;
@@ -106,5 +108,21 @@ main{
     padding: 40px;
     position: absolute;
     background-color: var(--pri);
+
+    .back{
+      color: white;
+      position: absolute;
+      right: 5%;
+      background-color: red;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-size: 20px;
+      transition: all 0.3s ease;
+
+      &:active{
+        transform: scale(0.9);
+      }
+    }
   }
 }

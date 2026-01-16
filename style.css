@@ -72,6 +72,8 @@ main section.allElems .elem {
   width: 270px;
   overflow: hidden;
   transition: all 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 main section.allElems .elem img {
   height: 100%;
@@ -98,4 +100,18 @@ main section.fullElem {
   padding: 40px;
   position: absolute;
   background-color: var(--pri);
+}
+main section.fullElem .back {
+  color: white;
+  position: absolute;
+  right: 5%;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+main section.fullElem .back:active {
+  transform: scale(0.9);
 }/*# sourceMappingURL=style.css.map */
