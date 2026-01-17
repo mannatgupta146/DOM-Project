@@ -1,44 +1,46 @@
-function openClose(){
-    let allElems = document.querySelectorAll('.elem')
-let fullElem = document.querySelectorAll('.fullElem')
-let fullElemBackBtn = document.querySelectorAll('.fullElem .back')
+function openClose() {
+  const allElems = document.querySelectorAll('.elem')
+  const fullElems = document.querySelectorAll('.fullElem')
+  const backBtns = document.querySelectorAll('.fullElem .back')
 
-allElems.forEach((elem)=>{
-    elem.addEventListener('click', ()=>{
-        fullElem[elem.id].style.display="block"
+  allElems.forEach((elem) => {
+    elem.addEventListener('click', () => {
+      fullElems[elem.id].style.display = 'block'
     })
-})
+  })
 
-fullElemBackBtn.forEach((elem)=>{
-    elem.addEventListener('click', ()=>{
-        fullElem[elem.id].style.display="none"
+  backBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      fullElems[btn.id].style.display = 'none'
     })
-})
+  })
 }
 
- openClose()
+openClose()
 
-let form = document.querySelector('.addTask form')
-let taskInput = document.querySelector('.addTask form input')
-let taskDetails = document.querySelector('.addTask form textarea')
 
-let taskCheckbox = document.querySelector('.addTask form .mark-imp #check')
+// DOM references
+const form = document.querySelector('.addTask form')
+const taskInput = document.querySelector('.addTask input')
+const taskDetails = document.querySelector('.addTask textarea')
+const taskCheckbox = document.querySelector('#check')
+const allTask = document.querySelector('.allTask')
 
+// State
 let currentTask = []
 
-if(localStorage.getItem('currentTask')){
-    currentTask = JSON.parse(localStorage.getItem('currentTask'))
-}
-else{
-    console.log('task list is empty');
-    
+// Load from localStorage
+if (localStorage.getItem('currentTask')) {
+  currentTask = JSON.parse(localStorage.getItem('currentTask'))
 }
 
+// Render tasks
 function renderTask() {
-  let allTask = document.querySelector('.allTask')
+  localStorage.setItem('currentTask', JSON.stringify(currentTask))
+
   let sum = ''
 
-  currentTask.forEach((elem) => {
+  currentTask.forEach((elem, idx) => {
     sum += `
       <div class="task">
         <div class="task-left">
@@ -47,13 +49,13 @@ function renderTask() {
             <span class="${elem.imp}">imp</span>
           </h5>
 
-          <button>Mark as Completed</button>
+          <button id="${idx}">Mark as Completed</button>
         </div>
-          <details>
-            <summary>View Details</summary>
-            <p>${elem.details}</p>
-          </details>
-        
+
+        <details>
+          <summary>View Details</summary>
+          <p>${elem.details}</p>
+        </details>
       </div>
     `
   })
@@ -61,23 +63,31 @@ function renderTask() {
   allTask.innerHTML = sum
 }
 
+// Initial render
 renderTask()
 
+// Add task
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
 
+  currentTask.push({
+    task: taskInput.value,
+    details: taskDetails.value,
+    imp: taskCheckbox.checked
+  })
 
- form.addEventListener('submit', (e)=>{
-    e.preventDefault()
+  renderTask()
 
-    currentTask.push({
-        task: taskInput.value, 
-        details: taskDetails.value, 
-        imp: taskCheckbox.checked
-    })
-    taskInput.value = ''
-    taskDetails.value = ''
-    taskCheckbox.checked = ''
+  taskInput.value = ''
+  taskDetails.value = ''
+  taskCheckbox.checked = false
+})
 
-    localStorage.setItem('currentTask', JSON.stringify(currentTask))
-
+// Delete task (event delegation)
+allTask.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    const index = Number(e.target.id)
+    currentTask.splice(index, 1)
     renderTask()
- })
+  }
+})
