@@ -23,11 +23,15 @@
 }
 
 :root{
-  --pri: #08396a;
-  --sec: #1f3c88;
-  --tri1: #e7f0ff;
-  --tri2: #bfdbfe;
+  --pri: #f8fafc;     
+  --sec: #eef2f7;     
+  --tri1: #e6ebf5;    
+  --light: #ffffff;  
+  --tri2: #4289F0;  
+  --soft: #dde7ff;   
+  --text: #0f172a;   
 }
+
 
 *{
   margin: 0;
@@ -39,7 +43,7 @@ html, body{
   width: 100%;
   height: 100%;
   background-color: var(--pri);
-  color: var(--sec);
+  color: var(--text);
   font-family: aeonik;
 }
 
@@ -53,7 +57,8 @@ main{
     left: 0;
     width: 100%;
     height: 50px;
-    background-color: var(--tri1);
+    background-color: var(--tri2);
+    color: #ffffff;
   }
 
   section.allElems{
@@ -68,9 +73,8 @@ main{
     position: absolute;
 
     .elem{
-        position: relative;
-
-        background-color: var(--tri2);
+      position: relative;
+      background-color: var(--tri1);
       border-radius: 14px;
       font-weight: 500;
       height: 300px;
@@ -78,7 +82,7 @@ main{
       overflow: hidden;
       transition: all 0.25s ease;
       cursor: pointer;
-      box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 
       img{
         height: 100%;
@@ -113,13 +117,19 @@ main{
       color: white;
       position: absolute;
       right: 5%;
-      background-color: red;
+      background: linear-gradient(135deg, #fb7185, #f43f5e);
+      box-shadow: 0 6px 15px rgba(71, 85, 105, 0.35);
+      color: #ffffff;
       border: none;
       border-radius: 10px;
       padding: 10px 15px;
       font-size: 20px;
       transition: all 0.3s ease;
       cursor: pointer;
+
+      &:hover{
+        filter: brightness(1.1);
+      }
 
       &:active{
         transform: scale(0.9);
@@ -130,7 +140,7 @@ main{
   .todo-fullpage{
 
     h2{
-      color: #000;
+      color: var(--tri2);
     }
 
     .todo-container{
@@ -157,7 +167,7 @@ main{
             padding: 10px 20px;
             width: 100%;
             border-radius: 7px;
-            background-color: var(--tri2);
+            background-color: var(--soft);
             font-size: 18px;
             border: none;
             outline: none;
@@ -167,7 +177,7 @@ main{
             padding: 10px 20px;
             width: 100%;
             border-radius: 7px;
-            background-color: var(--tri2);
+            background-color: var(--soft);
             font-size: 18px;
             border: none;
             outline: none;
@@ -177,7 +187,7 @@ main{
             padding: 10px 20px;
             width: 100%;
             border-radius: 7px;
-            background-color: var(--tri2);
+            background: linear-gradient(135deg, #4f46e5, #38bdf8);
             font-size: 18px;
             border: none;
             outline: none;
@@ -222,13 +232,14 @@ main{
 
         .task{
           width: 100%;
-          background-color: var(--tri2);
+          background-color: var(--light);
           gap: 7px;
           padding: 20px 30px;
           border-radius: 10px;
           display: flex;
-          flex-direction: column;   // 🔥 KEY FIX
+          flex-direction: column;   
           gap: 8px;
+          box-shadow: 0 8px 20px rgba(79, 70, 229, 0.12);
 
           .task-left {
             display: flex;
@@ -252,7 +263,7 @@ main{
               cursor: pointer;
               display: inline-block;
               font-weight: 600;
-              color: var(--pri);
+              color: var(--tri2);
               list-style: none;
             }
 
@@ -266,12 +277,13 @@ main{
               overflow-wrap: break-word;
               white-space: normal;
               margin-top: 4px;
-              color: #000;
+              color: #475569; 
+
             }
           }
 
           h5{
-            color: var(--pri);
+            color: var(--text);
             font-size: 30px;
             display: flex;
             align-items: flex-start;
@@ -282,8 +294,9 @@ main{
             max-width: 100%;
 
             span{
-              background-color: red;
-              color: #fff;
+              background-color: #ef4444;
+              color: #ffffff;
+              box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
               padding: 4px 6px;
               font-size: 10px;
               font-weight: 200;
@@ -303,11 +316,15 @@ main{
             flex-shrink: 0;  
             padding: 10px 20px;
             border: none;
-            color: var(--pri);
-            background-color: rgb(50, 217, 50);
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: #064e3b;
             font-size: 16px;
             border-radius: 7px;
             font-weight: 700;
+
+            &:hover{
+              filter: brightness(1.05);
+            }
 
             &:active{
               transform: scale(0.95);
