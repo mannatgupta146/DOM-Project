@@ -170,6 +170,22 @@ main .todo-fullpage .todo-container .addTask form button {
 main .todo-fullpage .todo-container .addTask form button:active {
   transform: scale(0.95);
 }
+main .todo-fullpage .todo-container .addTask form .mark-imp {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 6px;
+  padding: 7px 0;
+}
+main .todo-fullpage .todo-container .addTask form .mark-imp input {
+  width: 20px;
+  transform: scale(1.3);
+}
+main .todo-fullpage .todo-container .addTask form .mark-imp label {
+  font-size: 16px;
+  color: #000;
+}
 main .todo-fullpage .todo-container .allTask {
   height: 100%;
   width: 65%;
@@ -193,6 +209,23 @@ main .todo-fullpage .todo-container .allTask .task {
 main .todo-fullpage .todo-container .allTask .task h5 {
   color: var(--pri);
   font-size: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+main .todo-fullpage .todo-container .allTask .task h5 span {
+  background-color: red;
+  color: #fff;
+  padding: 4px 6px;
+  font-size: 10px;
+  font-weight: 200;
+  border-radius: 50px;
+}
+main .todo-fullpage .todo-container .allTask .task h5 span.true {
+  opacity: 1;
+}
+main .todo-fullpage .todo-container .allTask .task h5 span.false {
+  opacity: 0;
 }
 main .todo-fullpage .todo-container .allTask .task button {
   padding: 10px 20px;
