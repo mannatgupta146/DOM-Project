@@ -123,14 +123,13 @@ main .todo-fullpage .todo-container {
   height: 80%;
   width: 100%;
   margin-top: 20px;
-  background-color: var(--tri2);
   display: flex;
   justify-content: space-between;
 }
 main .todo-fullpage .todo-container .addTask {
   height: 100%;
   width: 33%;
-  background-color: darkorange;
+  background-color: var(--sec);
   border-radius: 20px;
 }
 main .todo-fullpage .todo-container .addTask form {
@@ -144,7 +143,7 @@ main .todo-fullpage .todo-container .addTask form input {
   padding: 10px 20px;
   width: 100%;
   border-radius: 7px;
-  background-color: var(--sec);
+  background-color: var(--tri2);
   font-size: 18px;
   border: none;
   outline: none;
@@ -153,7 +152,7 @@ main .todo-fullpage .todo-container .addTask form textarea {
   padding: 10px 20px;
   width: 100%;
   border-radius: 7px;
-  background-color: var(--sec);
+  background-color: var(--tri2);
   font-size: 18px;
   border: none;
   outline: none;
@@ -162,7 +161,7 @@ main .todo-fullpage .todo-container .addTask form button {
   padding: 10px 20px;
   width: 100%;
   border-radius: 7px;
-  background-color: var(--tri1);
+  background-color: var(--tri2);
   font-size: 18px;
   border: none;
   outline: none;
@@ -174,6 +173,36 @@ main .todo-fullpage .todo-container .addTask form button:active {
 main .todo-fullpage .todo-container .allTask {
   height: 100%;
   width: 65%;
-  background-color: rgb(170, 181, 9);
+  background-color: var(--sec);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  overflow: auto;
+}
+main .todo-fullpage .todo-container .allTask .task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--tri2);
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+main .todo-fullpage .todo-container .allTask .task h5 {
+  color: var(--pri);
+  font-size: 30px;
+}
+main .todo-fullpage .todo-container .allTask .task button {
+  padding: 10px 20px;
+  border: none;
+  color: var(--pri);
+  background-color: rgb(50, 217, 50);
+  font-size: 14px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+main .todo-fullpage .todo-container .allTask .task button:active {
+  transform: scale(0.95);
 }/*# sourceMappingURL=style.css.map */
