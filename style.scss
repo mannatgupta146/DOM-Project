@@ -28,7 +28,8 @@
   --tri1: #e6ebf5;    
   --light: #ffffff;  
   --tri2: #4289F0;  
-  --soft: #dde7ff;   
+  --soft: #e3edff;
+ 
   --text: #0f172a;   
 }
 
@@ -111,7 +112,7 @@ main{
     font-size: 50px;
     padding: 40px;
     position: absolute;
-    background-color: var(--pri);
+    background-color: #e5ecfc;
 
     .back{
       color: white;
@@ -135,16 +136,17 @@ main{
         transform: scale(0.9);
       }
     }
+
+    h2{
+      color: var(--tri2);
+      font-size: 50px;
+    }
   }
 
   .todo-fullpage{
 
-    h2{
-      color: var(--tri2);
-    }
-
     .todo-container{
-      height: 80%;
+      height: 90%;
       width: 100%;
       margin-top: 20px;
       display: flex;
@@ -181,6 +183,23 @@ main{
             font-size: 18px;
             border: none;
             outline: none;
+          }
+
+          input:not([type="checkbox"]), textarea {
+            transition: 
+            box-shadow 0.25s ease,
+            background-color 0.25s ease,
+            transform 0.15s ease;
+          }
+
+
+          input:not([type="checkbox"]):focus, textarea:focus {
+            outline: none;
+            background-color: var(--soft);
+            box-shadow:
+            0 0 0 3px rgba(66, 137, 240, 0.22),
+            0 8px 20px rgba(66, 137, 240, 0.18);
+            transform: translateY(-1px);
           }
 
           button{
@@ -330,6 +349,55 @@ main{
               transform: scale(0.95);
             }
           }
+        }
+      }
+    }
+  }
+
+  .daily-fullpage{
+
+    .day-planner{
+      background-color: var(--tri2);
+      height: 90%;
+      width: 100%;
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-start;
+      align-content: flex-start;
+      justify-content: flex-start;
+      padding: 30px;
+      overflow: auto;
+    
+      .day-planner-time{
+        width: 49%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        p{
+          font-size: 14px;
+          font-weight: 700;
+          position: absolute;
+          top: 5%;
+          left: 0.5%;
+          color: var(--text);
+        }
+
+        input{
+          padding: 10px 20px;
+          display: inline-block;
+          width: 100%;
+          border: none;
+          border-radius: 7px;
+          font-size: 20px;
+          padding-top: 20px;
+          background-color: var(--soft);
+          outline: none;
+          color: var(--text);
         }
       }
     }
