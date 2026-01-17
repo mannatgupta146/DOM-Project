@@ -34,18 +34,31 @@ else{
     
 }
 
-function renderTask(){
-     let allTask = document.querySelector('.allTask')
- let sum = ''
+function renderTask() {
+  let allTask = document.querySelector('.allTask')
+  let sum = ''
 
- currentTask.forEach((elem) => {
-    sum += `<div class="task">
-                <h5>${elem.task} <span class='${elem.imp}'> imp </span></h5>
-                <button>Mark as Completed</button>
-            </div>`
- })
+  currentTask.forEach((elem) => {
+    sum += `
+      <div class="task">
+        <div class="task-left">
+          <h5>
+            ${elem.task}
+            <span class="${elem.imp}">imp</span>
+          </h5>
 
- allTask.innerHTML = sum
+          <button>Mark as Completed</button>
+        </div>
+          <details>
+            <summary>View Details</summary>
+            <p>${elem.details}</p>
+          </details>
+        
+      </div>
+    `
+  })
+
+  allTask.innerHTML = sum
 }
 
 renderTask()

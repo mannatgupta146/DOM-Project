@@ -221,13 +221,54 @@ main{
         overflow: auto;
 
         .task{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
           width: 100%;
           background-color: var(--tri2);
+          gap: 7px;
           padding: 20px 30px;
           border-radius: 10px;
+          display: flex;
+          flex-direction: column;   // 🔥 KEY FIX
+          gap: 8px;
+
+          .task-left {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            min-width: 0;
+            gap: 6px;
+            flex: 1;
+          }
+
+          details{
+            width: 100%;
+            margin-top: 6px;
+            font-size: 14px;
+            color: #333;
+            word-break: break-word;
+            overflow-wrap: break-word;
+
+            summary{
+              cursor: pointer;
+              display: inline-block;
+              font-weight: 600;
+              color: var(--pri);
+              list-style: none;
+            }
+
+            summary::-webkit-details-marker{
+              display: none;
+            }
+
+            p{
+              width: 100%;
+              word-break: break-word;
+              overflow-wrap: break-word;
+              white-space: normal;
+              margin-top: 4px;
+              color: #000;
+            }
+          }
 
           h5{
             color: var(--pri);
@@ -235,6 +276,10 @@ main{
             display: flex;
             align-items: flex-start;
             gap: 12px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+            max-width: 100%;
 
             span{
               background-color: red;
@@ -255,11 +300,12 @@ main{
           }
 
           button{
+            flex-shrink: 0;  
             padding: 10px 20px;
             border: none;
             color: var(--pri);
             background-color: rgb(50, 217, 50);
-            font-size: 14px;
+            font-size: 16px;
             border-radius: 7px;
             font-weight: 700;
 
