@@ -427,17 +427,51 @@ main{
         position: absolute;
         border-radius: 50px;
         scale: 1.2;
-        background-color: #0855c9;
+        background-color: #79a4e4;
+        filter: blur(40px);
         z-index: 8;
       }
 
       .motivation-wrapper{
-        height: 100%;
         width: 100%;
         position: absolute;
         z-index: 10;
         background-color: var(--tri2);
         border-radius: 40px;
+        padding: 10px;
+
+        .motivation-1{
+
+          h2{
+            background-color: #22c55e;
+            color: #000;
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 30px;
+            font-weight: 500;
+          }
+        }
+
+        .motivation-2{
+          margin-top: 20px;
+          padding: 10px;
+
+          h1{
+            font-size: 35px;
+          }
+        }
+
+        .motivation-3{
+
+          h2{
+            background-color: #22c55e;
+            color: #000;
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 30px;
+            font-weight: 500;
+          }
+        }
       }
     }
   }
