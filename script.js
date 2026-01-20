@@ -141,6 +141,35 @@ function dailyPlanner() {
 // Call it
 dailyPlanner()
 
+function motivation() {
+  const motivationQuote = document.querySelector('.motivation-2 h1')
+  const motivationAuthor = document.querySelector('.motivation-3 h2')
+  const refreshBtn = document.querySelector('.refresh-quote')
+
+  async function fetchMotivation() {
+    try {
+      const response = await fetch('https://dummyjson.com/quotes/random')
+      const data = await response.json()
+
+      motivationQuote.textContent = data.quote
+      motivationAuthor.textContent = `- ${data.author}`
+    } catch (err) {
+      motivationQuote.textContent = 'Stay consistent. Growth is inevitable.'
+      motivationAuthor.textContent = '- Unknown'
+      console.error(err)
+    }
+  }
+
+  // initial load
+  fetchMotivation()
+
+  // refresh button
+  refreshBtn.addEventListener('click', fetchMotivation)
+}
+
+// call it once
+motivation()
 
 
 //next 
+
