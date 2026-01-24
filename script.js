@@ -171,44 +171,77 @@ function motivation() {
 motivation()
 
 
-//next 
+function pomodoro() {
+  const timer = document.querySelector('.pomo-timer h1')
 
-let timer = document.querySelector('.pomo-timer h1')
+  const startBtn = document.querySelector('.pomo-timer .start-timer')
+  const pauseBtn = document.querySelector('.pomo-timer .pause-timer')
+  const resetBtn = document.querySelector('.pomo-timer .reset-timer')
 
-let startBtn = document.querySelector('.pomo-timer .start-timer')
-let pauseBtn = document.querySelector('.pomo-timer .pause-timer')
-let resetBtn = document.querySelector('.pomo-timer .reset-timer')
+  const session = document.querySelector('.pomo-fullpage h4')
 
-let timerInterval = null
+  let timerInterval = null
+  let isWorkSession = true
+  let totalSeconds = 1500
 
-let totalSeconds = 1500
+  function updateTimer() {
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = totalSeconds % 60
 
-function updateTimer() {
-  let seconds = totalSeconds%60
-  let minutes = Math.floor(totalSeconds/60)
+    timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+  }
 
-  timer.innerHTML = `${minutes}:${seconds}`
+  function updateSessionUI() {
+    if (isWorkSession) {
+      session.innerText = 'Focus Time'
+      session.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)'
+      session.style.boxShadow = '0 0 20px rgba(34, 197, 94, 0.6)'
+    } else {
+      session.innerText = 'Break Time'
+      session.style.background = 'linear-gradient(135deg, #60a5fa, #3b82f6)'
+      session.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.6)'
+    }
+  }
 
-}
+  function startTimer() {
+    if (timerInterval) return
 
-function startTimer(){
-  clearInterval(timerInterval)
-  timerInterval = setInterval(() => {
-    totalSeconds--
+    timerInterval = setInterval(() => {
+      if (totalSeconds > 0) {
+        totalSeconds--
+        updateTimer()
+      } else {
+        clearInterval(timerInterval)
+        timerInterval = null
+
+        isWorkSession = !isWorkSession
+        totalSeconds = isWorkSession ? 1500 : 300
+        updateSessionUI()
+        updateTimer()
+      }
+    }, 1000)
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval)
+    timerInterval = null
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval)
+    timerInterval = null
+    isWorkSession = true
+    totalSeconds = 1500
+    updateSessionUI()
     updateTimer()
-  }, 1000)
-}
+  }
 
-function pauseTimer(){
-  clearInterval(timerInterval)
-}
+  startBtn.addEventListener('click', startTimer)
+  pauseBtn.addEventListener('click', pauseTimer)
+  resetBtn.addEventListener('click', resetTimer)
 
-function resetTimer(){
-  totalSeconds = 1500
-  clearInterval(timerInterval)
   updateTimer()
+  updateSessionUI()
 }
 
-startBtn.addEventListener('click', startTimer)
-pauseBtn.addEventListener('click', pauseTimer)
-resetBtn.addEventListener('click', resetTimer)
+pomodoro()
