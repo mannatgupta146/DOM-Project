@@ -100,7 +100,6 @@ main section.fullElem {
   height: 100%;
   width: 100%;
   display: none;
-  font-size: 50px;
   padding: 40px;
   position: absolute;
   background-color: #e5ecfc;
@@ -455,4 +454,31 @@ main .moti-fullpage .motivation-container .motivation-wrapper .motivation-3 h2 {
   font-weight: 500;
   width: -moz-fit-content;
   width: fit-content;
+}
+main .pomo-fullpage {
+  position: relative;
+}
+main .pomo-fullpage .pomo-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+main .pomo-fullpage .pomo-timer h1 {
+  font-size: 110px;
+  color: var(--text);
+}
+main .pomo-fullpage .pomo-timer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  background-color: var(--tri2);
+  margin: 7px;
+  box-shadow: 4px 4px 20px rgb(0, 0, 0);
+  transition: all 0.1s ease;
+}
+main .pomo-fullpage .pomo-timer button:active {
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
 }/*# sourceMappingURL=style.css.map */

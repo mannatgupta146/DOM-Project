@@ -173,3 +173,42 @@ motivation()
 
 //next 
 
+let timer = document.querySelector('.pomo-timer h1')
+
+let startBtn = document.querySelector('.pomo-timer .start-timer')
+let pauseBtn = document.querySelector('.pomo-timer .pause-timer')
+let resetBtn = document.querySelector('.pomo-timer .reset-timer')
+
+let timerInterval = null
+
+let totalSeconds = 1500
+
+function updateTimer() {
+  let seconds = totalSeconds%60
+  let minutes = Math.floor(totalSeconds/60)
+
+  timer.innerHTML = `${minutes}:${seconds}`
+
+}
+
+function startTimer(){
+  clearInterval(timerInterval)
+  timerInterval = setInterval(() => {
+    totalSeconds--
+    updateTimer()
+  }, 1000)
+}
+
+function pauseTimer(){
+  clearInterval(timerInterval)
+}
+
+function resetTimer(){
+  totalSeconds = 1500
+  clearInterval(timerInterval)
+  updateTimer()
+}
+
+startBtn.addEventListener('click', startTimer)
+pauseBtn.addEventListener('click', pauseTimer)
+resetBtn.addEventListener('click', resetTimer)
