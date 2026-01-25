@@ -252,7 +252,7 @@ pomodoro()
 async function weather() {
   // 🔹 Config
   let apiKey = '88660a54c41740edb6b130752262501'
-  let city = 'Jammu'
+  let city = 'Udhampur'
   let data = null
 
   const dayOfWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
@@ -428,3 +428,38 @@ function dailyGoals() {
 
 /* ---------- INIT ---------- */
 dailyGoals()
+
+function handleDailyStreak() {
+  const streakEl = document.getElementById('streakCount')
+
+  const today = new Date()
+  const todayStr = today.toDateString()
+
+  let streak = parseInt(localStorage.getItem('dailyStreak')) || 0
+  let lastDate = localStorage.getItem('lastOpenDate')
+
+  if (!lastDate) {
+    // First time user
+    streak = 1
+  } else {
+    const last = new Date(lastDate)
+    const diffDays = Math.floor(
+      (today - last) / (1000 * 60 * 60 * 24)
+    )
+
+    if (diffDays === 1) {
+      streak += 1
+    } else if (diffDays > 1) {
+      streak = 1
+    }
+    // diffDays === 0 → same day → no change
+  }
+
+  localStorage.setItem('dailyStreak', streak)
+  localStorage.setItem('lastOpenDate', todayStr)
+
+  if (streakEl) streakEl.innerText = streak
+}
+
+// Call once on load
+handleDailyStreak()

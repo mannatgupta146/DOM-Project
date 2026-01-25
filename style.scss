@@ -68,28 +68,21 @@ main{
       justify-content: space-between;
 
       h1{
-        
+        font-size: 30px;
       }
 
-      button{
-        padding: 10px 20px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #1e14db, #0983b7);
-        font-size: 16px;
-        border: none;
-        outline: none;
-        color: #ffffff;
-        box-shadow: 0 8px 20px rgba(66, 137, 240, 0.25);
+      .daily-streak {
         cursor: pointer;
-        transition: all ease 0.3s;
-
-        &:hover{
-          filter: brightness(1.4);
-        }
-
-        &:active{
-          transform: scale(0.90);
-        }
+        background: rgba(255, 255, 255, 0.18);
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
+        backdrop-filter: blur(6px);
       }
     }
   }
@@ -102,7 +95,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 42px;
+    margin-top: 50px;
 
     header{
       margin-top: 20px;
