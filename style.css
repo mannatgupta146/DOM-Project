@@ -59,21 +59,42 @@ main nav {
 main section.allElems {
   width: 100%;
   height: 100%;
-  padding: 80px 40px;
+  padding: 40px;
+  position: absolute;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  gap: 20px;
+}
+main section.allElems header {
+  margin-top: 20px;
+  height: 300px;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+main section.allElems header img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+main section.allElems .allFeatures {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-self: flex-start;
   gap: 20px;
-  position: absolute;
 }
 main section.allElems .elem {
   position: relative;
   background-color: var(--tri1);
   border-radius: 14px;
   font-weight: 500;
-  height: 300px;
-  width: 270px;
+  height: 280px;
+  width: 260px;
   overflow: hidden;
   transition: all 0.25s ease;
   cursor: pointer;
@@ -89,8 +110,8 @@ main section.allElems .elem img {
 }
 main section.allElems .elem h2 {
   position: absolute;
-  bottom: 4%;
-  right: 5%;
+  bottom: 1%;
+  left: 5%;
   font-family: aeonik;
 }
 main section.allElems .elem:active {
