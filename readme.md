@@ -1,125 +1,99 @@
 # 🧠 Productivity Dashboard
 
-A modern, all-in-one productivity dashboard designed to help you **plan your day, stay focused, and build consistency**.
+A **modern, distraction-free productivity dashboard** designed to help you **plan your day, stay focused, and build long-term consistency**.
 
-This project combines multiple productivity tools into a single clean interface with real-time updates, local persistence, and a smooth user experience.
+This project combines essential productivity tools into **one clean interface** with real-time updates, smooth interactions, and persistent local storage — built entirely using **Vanilla JavaScript**.
 
-
-## ✨ Features
-
-### 📅 Weather Card (Live)
-- Real-time date and clock (updates every second)
-- Live weather information (temperature, humidity, wind, condition)
-- Location-based weather display
-- Clean glassmorphism weather card
+> *“Small progress every day leads to big results.”*
 
 ---
 
-### 🔥 Daily Streak System
-- Tracks consecutive days the dashboard is opened
-- Automatically increments once per day
-- Resets if a day is missed
-- Stored using `localStorage`
+## 🌟 Why This Dashboard?
+
+- All-in-one solution for daily productivity
+- No frameworks → strong focus on **core JavaScript & DOM manipulation**
+- Lightweight, fast, and easy to use
+- Clean UI focused on **clarity and consistency**
+- Works offline (except live weather)
 
 ---
 
-### 📝 To-Do List
-- Add tasks with detailed descriptions
-- Mark tasks as **important**
-- Expand/collapse task details
-- Persistent storage using `localStorage`
-- Clean, distraction-free layout
+## ✨ Features Overview
 
----
-
-### 🗓️ Daily Planner
-- Time-based daily planning layout
-- Input fields for scheduling your day
-- Scrollable and responsive layout
-- Data persists locally
-
----
-
-### 💡 Motivation Section
-- Displays a **Quote of the Day**
-- Refresh button to fetch a new quote
-- Elegant animated card design
-- Focused, calm visual experience
-
----
-
-### ⏱️ Pomodoro Timer
-- 25-minute focus sessions
-- 5-minute break sessions
-- Start / Pause / Reset controls
-- Automatic session switching
-- Clear visual state (Focus / Break)
-
----
-
-
-### 🎯 Daily Goals Tracker
-- Add goals with emoji support
-- Manual progress control (0% → 100%)
-- Progress states:
-  - Not Started
-  - Started
-  - In Progress
-  - Going Strong
-  - Almost Finished
-- Goals automatically disappear at 100%
-- Daily reset at midnight
-- Stored using `localStorage`
+| Feature | Description | Key Behaviors | Storage |
+|-------|------------|---------------|---------|
+| 📅 **Live Weather Card** | Displays real-time date, time, and weather | Updates every second, shows temperature, humidity, wind, and condition | ❌ (Live API) |
+| 🔥 **Daily Streak System** | Tracks daily consistency | Increments once per day, resets if a day is missed | ✅ localStorage |
+| 📝 **To-Do List** | Manage daily tasks efficiently | Add tasks, descriptions, mark important ⭐, expand/collapse | ✅ localStorage |
+| 🗓️ **Daily Planner** | Plan your day by time | Time-based planning layout, scrollable & responsive | ✅ localStorage |
+| 💡 **Motivation Section** | Keeps mindset positive | Quote of the Day with refresh option | ❌ |
+| ⏱️ **Pomodoro Timer** | Focus & break management | 25-min focus, 5-min break, auto switch | ❌ |
+| 🎯 **Daily Goals Tracker** | Track goal progress | Emoji support, progress 0–100%, auto remove at 100%, daily reset | ✅ localStorage |
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5** – Semantic layout
-- **SCSS** – Modular, maintainable styling
-- **Vanilla JavaScript** – Core logic (no frameworks)
-- **WeatherAPI** – Live weather data
-- **LocalStorage** – Data persistence
-- **Custom Fonts** – Aeonik (Light, Regular, Bold)
+| Technology | Usage |
+|----------|------|
+| **HTML5** | Semantic layout |
+| **SCSS** | Modular & maintainable styling |
+| **Vanilla JavaScript** | Core logic & DOM manipulation |
+| **WeatherAPI** | Live weather data |
+| **LocalStorage** | Client-side data persistence |
+| **Aeonik Font** | Clean modern typography |
 
+---
 
 ## 🚀 How to Run Locally
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/mannatgupta146/DOM-Project.git```
+   git clone https://github.com/mannatgupta146/DOM-Project.git
+   ```
 
-2. Open the project folder:
+2. **Navigate to the project folder**
 
    ```bash
    cd productivity-dashboard
    ```
 
-3. Open `index.html` in your browser
-   *(No server required)*
+3. **Open `index.html` in your browser**
 
-## ⚠️ Notes
+   ✔ No server required
 
-* This project uses **localStorage**, so data persists per browser
-* Clearing browser data will reset all data
-* Weather requires an active **WeatherAPI key**
+---
 
+## ⚠️ Important Notes
 
-## 🎯 Purpose of the Project
+* Uses **localStorage**, data persists per browser
+* Clearing browser data resets all progress
+* Weather feature requires a valid **WeatherAPI key**
+* Best experienced on modern browsers
+
+---
+
+## 🎯 Purpose of This Project
 
 This project was built to:
 
 * Practice **DOM manipulation**
-* Design a **real-world productivity UI**
 * Implement **state management without frameworks**
-* Focus on **UX, logic, and consistency**
+* Design a **real-world productivity UI**
+* Improve **UX thinking and logical structuring**
+* Build habit-based features like streaks and goals
+
+---
 
 ## 🙌 Acknowledgements
 
 * Weather data from **WeatherAPI**
 * Icons from **Remix Icon**
-* UI inspiration from modern SaaS dashboards
+* UI inspiration from modern **SaaS dashboards**
 
 ---
 
-> *“Small progress every day leads to big results.”*
+### ⭐ Like this project?
+
+Give it a ⭐ on GitHub and use it daily to stay consistent 🚀
+
