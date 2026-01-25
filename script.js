@@ -246,69 +246,182 @@ function pomodoro() {
 
 pomodoro()
 
+async function weather() {
+  // 🔹 Config
+  let apiKey = '88660a54c41740edb6b130752262501'
+  let city = 'Jammu'
+  let data = null
 
+  const dayOfWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 
+  // 🔹 DOM
+  let headerDate = document.querySelector('.header1 h1')
+  let headerMonth = document.querySelector('.header1 h2')
+  let headerLocation = document.querySelector('.header1 h4')
 
+  let headerTemp = document.querySelector('.header2 h2')
+  let headerPrecipitation = document.querySelector('.header2 .prep')
+  let headerHumdity = document.querySelector('.header2 .hum')
+  let headerWind = document.querySelector('.header2 .wind')
+  let headerCondition = document.querySelector('.header2 h4')
 
-
-let apiKey = '88660a54c41740edb6b130752262501'
-let city = 'Udhampur'
-let data = null
-
-const dayOfWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-
-async function weatherApiCall() {
+  // 🔹 API call
   const response = await fetch(
     `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
   )
   data = await response.json()
-  console.log(data);
-  
-}
+  console.log(data)
 
-async function initWeather() {
-  await weatherApiCall()
+  // 🔹 Time + UI
+  function timeDate() {
+    const date = new Date()
+
+    const dayToday = dayOfWeek[date.getDay()]
+
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+
+    const ampm = hours >= 12 ? 'PM' : 'AM'
+
+    hours = hours % 12 || 12
+    hours = String(hours).padStart(2, '0')
+    minutes = String(minutes).padStart(2, '0')
+    seconds = String(seconds).padStart(2, '0')
+
+    headerDate.innerHTML = `${dayToday}, ${hours}:${minutes}:${seconds} ${ampm}`
+
+    headerMonth.innerHTML =
+      date.toLocaleString('default', { month: 'long' }) +
+      ' ' +
+      date.getDate() +
+      ', ' +
+      date.getFullYear()
+
+    headerTemp.innerHTML = `${data.current.temp_c}°C`
+    headerCondition.innerHTML = data.current.condition.text
+    headerPrecipitation.innerHTML = `Precipitation: ${data.current.precip_mm} mm`
+    headerHumdity.innerHTML = `Humidity: ${data.current.humidity}%`
+    headerWind.innerHTML = `Wind: ${data.current.wind_kph} kph`
+    headerLocation.innerHTML = `${data.location.name}, ${data.location.region}`
+
+    setTimeout(timeDate, 1000)
+  }
+
   timeDate()
 }
 
-let headerDate = document.querySelector('.header1 h1')
-let headerMonth = document.querySelector('.header1 h2')
-let headerLocation = document.querySelector('.header1 h4')
+// 🚀 single call
+weather()
 
-let headerTemp = document.querySelector('.header2 h2')
-let headerPrecipitation = document.querySelector('.header2 .prep')
-let headerHumdity = document.querySelector('.header2 .hum')
-let headerWind = document.querySelector('.header2 .wind')
-let headerCondition = document.querySelector('.header2 h4')
+function dailyGoals() {
+  const goalsList = document.querySelector('.goals-list')
+  const addBtn = document.getElementById('addGoalBtn')
+  const goalText = document.getElementById('goalText')
+  const goalEmoji = document.getElementById('goalEmoji')
 
-function timeDate() {
-  const date = new Date()
+  let goals = JSON.parse(localStorage.getItem('dailyGoals')) || []
+  let savedDate = localStorage.getItem('goalDate')
 
-  const dayToday = dayOfWeek[date.getDay()]
-  let hours = date.getHours()
-  let minutes = date.getMinutes()
+  /* ---------- DAILY RESET ---------- */
+  const today = new Date().toDateString()
+  if (savedDate !== today) {
+    goals = []
+    localStorage.setItem('goalDate', today)
+    localStorage.setItem('dailyGoals', JSON.stringify(goals))
+  }
 
-  const ampm = hours >= 12 ? 'PM' : 'AM'
-  hours = hours % 12 || 12
-  minutes = String(minutes).padStart(2, '0')
-  let seconds = String(date.getSeconds()).padStart(2, '0')
+  /* ---------- STATUS TEXT ---------- */
+  function getStatus(p) {
+    if (p === 0) return 'Not Started'
+    if (p <= 25) return 'Started'
+    if (p <= 50) return 'In Progress'
+    if (p <= 75) return 'Going Strong'
+    if (p < 100) return 'Almost Finished'
+    return 'Completed'
+  }
 
-  headerDate.innerHTML = `${dayToday}, ${hours}:${minutes}:${seconds} ${ampm}`
-  headerMonth.innerHTML =
-    date.toLocaleString('default', { month: 'long' }) +
-    ' ' +
-    date.getDate() +
-    ', ' +
-    date.getFullYear()
+  /* ---------- RENDER ---------- */
+  function renderGoals() {
+    goalsList.innerHTML = ''
 
-  headerTemp.innerHTML = `${data.current.temp_c}°C`
-  headerCondition.innerHTML = data.current.condition.text
-  headerPrecipitation.innerHTML = `Precipitation: ${data.current.precip_mm} mm`
-  headerHumdity.innerHTML = `Humidity: ${data.current.humidity}%`
-  headerWind.innerHTML = `Wind: ${data.current.wind_kph} kph`
-  headerLocation.innerHTML = `${data.location.name}, ${data.location.region}`
+    goals.forEach((g, i) => {
+      const card = document.createElement('div')
+      card.className = 'goal-card'
 
-  setTimeout(timeDate, 1000)
+      let segments = ''
+      for (let s = 0; s < 10; s++) {
+        segments += `
+          <div class="progress-segment ${
+            s < g.progress / 10 ? 'active' : ''
+          }"></div>`
+      }
+
+      card.innerHTML = `
+        <div class="goal-header">
+          <div class="goal-title">${g.emoji} ${g.text}</div>
+          <div class="goal-status">${getStatus(g.progress)}</div>
+        </div>
+
+        <div class="progress-bar">
+          ${segments}
+        </div>
+
+        <div class="goal-controls">
+          <button data-action="minus" data-index="${i}">−</button>
+          <span class="goal-percent">${g.progress}%</span>
+          <button data-action="plus" data-index="${i}">+</button>
+        </div>
+      `
+
+      goalsList.appendChild(card)
+    })
+
+    localStorage.setItem('dailyGoals', JSON.stringify(goals))
+  }
+
+  /* ---------- UPDATE PROGRESS ---------- */
+  function updateGoal(index, change) {
+    goals[index].progress = Math.min(
+      100,
+      Math.max(0, goals[index].progress + change)
+    )
+
+    if (goals[index].progress === 100) {
+      setTimeout(() => {
+        goals.splice(index, 1)
+        renderGoals()
+      }, 400)
+    } else {
+      renderGoals()
+    }
+  }
+
+  /* ---------- EVENTS ---------- */
+  goalsList.addEventListener('click', (e) => {
+    const btn = e.target
+    if (!btn.dataset.action) return
+
+    const index = Number(btn.dataset.index)
+    const change = btn.dataset.action === 'plus' ? 10 : -10
+    updateGoal(index, change)
+  })
+
+  addBtn.addEventListener('click', () => {
+    if (!goalText.value.trim()) return
+
+    goals.push({
+      text: goalText.value.trim(),
+      emoji: goalEmoji.value,
+      progress: 0
+    })
+
+    goalText.value = ''
+    renderGoals()
+  })
+
+  renderGoals()
 }
 
-initWeather()
+/* ---------- INIT ---------- */
+dailyGoals()

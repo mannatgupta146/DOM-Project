@@ -131,8 +131,29 @@
         </section>
 
         <section class="fullElem goals-fullpage">
-            <button class="back" id="4">Close</i></button>
-            <h1>Daily Goals</h1>
+            <button class="back" id="4">Close</button>
+            <h2>Your Daily Goals</h2>
+ 
+            <div class="goals-container">
+                <!-- Add Goal -->
+ 
+                <div class="add-goal">
+                    <select id="goalEmoji">
+                        <option value="🎯">🎯</option>
+                        <option value="🏃">🏃</option>
+                        <option value="📚">📚</option>
+                        <option value="🧘">🧘</option>
+                        <option value="💻">💻</option>
+                        <option value="🧠">🧠</option>
+                    </select>
+                    <input type="text" id="goalText" placeholder="Enter goal..." />
+                    <button id="addGoalBtn">Add</button>
+ 
+                </div>
+                <!-- Goals list --> 
+                <div class="goals-list"></div>
+
+            </div>
         </section>
 
     </main>
