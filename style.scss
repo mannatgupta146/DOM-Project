@@ -43,7 +43,7 @@
 html, body{
   width: 100%;
   height: 100%;
-  background-color: var(--pri);
+  background-color: #b6d3fe;
   color: var(--text);
   font-family: aeonik;
 }
@@ -58,7 +58,7 @@ main{
     left: 0;
     width: 100%;
     height: 50px;
-    background-color: #4289F0;
+    background-color: var(--tri2);
     color: #ffffff;
   }
 
