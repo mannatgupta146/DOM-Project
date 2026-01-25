@@ -1,10 +1,3 @@
-Perfect 👍
-Here’s a **clean, professional, copy-paste–ready `README.md`** for your **Productivity Dashboard**.
-This is **portfolio-grade**, not overhyped, not childish.
-
----
-
-```md
 # 🧠 Productivity Dashboard
 
 A modern, all-in-one productivity dashboard designed to help you **plan your day, stay focused, and build consistency**.
