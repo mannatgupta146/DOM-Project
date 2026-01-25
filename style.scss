@@ -97,11 +97,17 @@ main{
         h1{
           font-size: 52px;
           font-weight: 700;
-          margin-bottom: 10px;
+          margin-bottom: 50px;
+        }
+
+        h2{
+          margin-top: 10px;
+          font-size: 35px;
+          font-weight: 500;
         }
 
         h4{
-          font-size: 30px;
+          font-size: 35px;
           font-weight: 500;
           opacity: 0.9;
         }
@@ -116,12 +122,17 @@ main{
         box-shadow:
         0 8px 20px rgba(66, 137, 240, 0.25),
         inset 0 0 0 1px rgba(255,255,255,0.4);
+        margin-right: 10px;
 
         h2{
           font-size: 40px;
           font-weight: 700;
           margin-bottom: 6px;
           color: #186ae5;
+        }
+
+        .weather{
+          margin-top: 10px;
         }
 
         h3{
@@ -186,7 +197,7 @@ main{
     display: none;
     padding: 40px;
     position: absolute;
-    background-color: #e5ecfc;
+    background-color: #cbd7f4;
 
     .back{
       color: white;
