@@ -245,3 +245,20 @@ function pomodoro() {
 }
 
 pomodoro()
+
+
+
+
+
+
+let apiKey = '88660a54c41740edb6b130752262501'
+let city = 'udhampur'
+
+async function weatherApiCall(){
+  let response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
+  let data = await response.json()
+  console.log(data)
+  
+}
+
+weatherApiCall()

@@ -71,14 +71,50 @@ main section.allElems header {
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.05)), url(./assets/weather.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #f8fafc;
 }
-main section.allElems header img {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
+main section.allElems header .header1 h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+main section.allElems header .header1 h4 {
+  font-size: 30px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+main section.allElems header .header2 {
+  background: rgba(226, 236, 255, 0.75);
+  color: #0f172a;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(66, 137, 240, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+main section.allElems header .header2 h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #186ae5;
+}
+main section.allElems header .header2 h3 {
+  font-size: 25px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+main section.allElems header .header2 h4 {
+  font-size: 20px;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--text);
 }
 main section.allElems .allFeatures {
   width: 100%;
