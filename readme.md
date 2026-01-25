@@ -13,6 +13,7 @@ This project combines multiple productivity tools into a single clean interface 
 - Location-based weather display
 - Clean glassmorphism weather card
 
+---
 
 ### 🔥 Daily Streak System
 - Tracks consecutive days the dashboard is opened
@@ -20,6 +21,7 @@ This project combines multiple productivity tools into a single clean interface 
 - Resets if a day is missed
 - Stored using `localStorage`
 
+---
 
 ### 📝 To-Do List
 - Add tasks with detailed descriptions
@@ -28,6 +30,7 @@ This project combines multiple productivity tools into a single clean interface 
 - Persistent storage using `localStorage`
 - Clean, distraction-free layout
 
+---
 
 ### 🗓️ Daily Planner
 - Time-based daily planning layout
@@ -35,6 +38,7 @@ This project combines multiple productivity tools into a single clean interface 
 - Scrollable and responsive layout
 - Data persists locally
 
+---
 
 ### 💡 Motivation Section
 - Displays a **Quote of the Day**
@@ -42,6 +46,7 @@ This project combines multiple productivity tools into a single clean interface 
 - Elegant animated card design
 - Focused, calm visual experience
 
+---
 
 ### ⏱️ Pomodoro Timer
 - 25-minute focus sessions
@@ -49,6 +54,8 @@ This project combines multiple productivity tools into a single clean interface 
 - Start / Pause / Reset controls
 - Automatic session switching
 - Clear visual state (Focus / Break)
+
+---
 
 
 ### 🎯 Daily Goals Tracker
@@ -64,6 +71,8 @@ This project combines multiple productivity tools into a single clean interface 
 - Daily reset at midnight
 - Stored using `localStorage`
 
+---
+
 ## 🛠️ Tech Stack
 
 - **HTML5** – Semantic layout
@@ -78,8 +87,7 @@ This project combines multiple productivity tools into a single clean interface 
 
 1. Clone the repository:
    ```bash
-   git clone <your-repo-link>
-````
+   git clone https://github.com/mannatgupta146/DOM-Project.git```
 
 2. Open the project folder:
 
