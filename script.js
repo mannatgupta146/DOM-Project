@@ -1,3 +1,4 @@
+let nav = document.querySelector('nav');
 // ---------- OPEN / CLOSE (keep as it is) ----------
 function openClose() {
   const allElems = document.querySelectorAll('.elem')
@@ -7,12 +8,14 @@ function openClose() {
   allElems.forEach((elem) => {
     elem.addEventListener('click', () => {
       fullElems[elem.id].style.display = 'block'
+      nav.style.display = 'none'
     })
   })
 
   backBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       fullElems[btn.id].style.display = 'none'
+      nav.style.display = 'block'
     })
   })
 }

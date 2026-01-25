@@ -41,6 +41,7 @@ html, body {
   background-color: #b6d3fe;
   color: var(--text);
   font-family: aeonik;
+  overflow: hidden;
 }
 
 main {
@@ -49,21 +50,45 @@ main {
 }
 main nav {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 50px;
-  background-color: var(--tri2);
   color: #ffffff;
+  z-index: 999;
+}
+main nav .nav-div {
+  padding: 12px 50px;
+  background-color: var(--tri2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main nav .nav-div button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1e14db, #0983b7);
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(66, 137, 240, 0.25);
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+main nav .nav-div button:hover {
+  filter: brightness(1.4);
+}
+main nav .nav-div button:active {
+  transform: scale(0.9);
 }
 main section.allElems {
   width: 100%;
   height: 100%;
-  padding: 40px;
+  padding: 10px 40px;
   position: absolute;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 42px;
 }
 main section.allElems header {
   margin-top: 20px;
@@ -592,9 +617,12 @@ main .pomo-fullpage .pomo-timer .reset-timer {
   color: #ffffff;
 }
 main .goals-fullpage .goals-container {
-  margin-top: 30px;
-  padding: 0 20px;
+  margin-top: 10px;
+  padding: 20px 20px;
   width: 100%;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 main .goals-fullpage .add-goal {
   display: grid;
